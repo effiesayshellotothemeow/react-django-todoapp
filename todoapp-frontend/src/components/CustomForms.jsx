@@ -1,44 +1,47 @@
-import { BeakerIcon } from "@heroicons/react/24/solid";
+import { useState } from "react";
 
-const CustomForms = () => {
+// Heroicon
+import { PlusIcon } from "@heroicons/react/24/solid";
 
-    const handleFormSubmit = (e) => {
-        // Prevent default form submission (aka reloading)
-        e.preventDefault();
-        // Log event for future debugging
-        console.log(e);
-    }
+const CustomForms = ({ addTask }) => {
+	// Hooks
+	const [task, setTask] = useState("");
 
-  return (
-    <form className="todo" onSubmit={handleFormSubmit}>
-        <div className="wrapper">
-           <input
-                className="input" 
-                id="task"
-                type="text"
-                placeholder="Enter Task"
-                //value={task}
-                maxLength={60}
-                autoFocus
-                required
-                onInput={(e) => setTask(e.target.value)}
-                >
+	const handleFormSubmit = (e) => {
+		// Prevent default form submission (aka reloading)
+		e.preventDefault();
+        addTask({
+            name: task,
+            checked: false,
+            id: Date.now()
+        })
+        setTask("");
+	};
+
+	return (
+		<form className="todo" onSubmit={handleFormSubmit}>
+			<div className="wrapper">
+				<input
+					className="input"
+					id="task"
+					type="text"
+					placeholder="Enter Task"
+					value={task}
+					maxLength={60}
+					autoFocus
+					required
+					onInput={(e) => setTask(e.target.value)}
+				>
                 </input>
-           <label
-                className="label"
-                htmlFor="task"
-                >
-            </label>
-            </div>
-            <button
-                className="btn"
-                type="submit"
-                //aria-label="Add Task"
-                >
-                <BeakerIcon className="h-6 w-6 text-blue-500"/>
-            </button>
-    </form>
-  )
-}
+				<label className="label" htmlFor="task">
+                    Enter Task
+                </label>
+			</div>
+			<button className="btn" type="submit" /*aria-label="Add Task"*/>
+				<PlusIcon />
+			</button>
+		</form>
+	);
+};
 
 export default CustomForms
