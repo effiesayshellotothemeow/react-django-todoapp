@@ -11,13 +11,13 @@ const CustomForms = ({ addTask }) => {
 		// Prevent default form submission (aka reloading)
 		e.preventDefault();
 
-        addTask({
-            name: task,
-            checked: false,
-            id: Date.now()
-        })
-        // Clear input field after submit
-        setTask("");
+		addTask({
+			name: task,
+			checked: false,
+			id: Date.now(),
+		});
+		// Clear input field after submit
+		setTask("");
 	};
 
 	return (
@@ -33,11 +33,10 @@ const CustomForms = ({ addTask }) => {
 					autoFocus
 					required
 					onInput={(e) => setTask(e.target.value)}
-				>
-                </input>
+				></input>
 				<label className="label" htmlFor="task">
-                    Enter Task
-                </label>
+					Enter Task
+				</label>
 			</div>
 			<button className="btn" type="submit" /*aria-label="Add Task"*/>
 				<PlusIcon />
@@ -46,4 +45,4 @@ const CustomForms = ({ addTask }) => {
 	);
 };
 
-export default CustomForms
+export default CustomForms;

@@ -1,14 +1,19 @@
 import { useState } from "react";
 
-//components
+//Components
 import CustomForm from "./components/CustomForms";
+import TaskList from "./components/TaskList";
 
 function App() {
-	const [count, setCount] = useState(0);
+    // Create a variable to store tasks ;and a function to update it.
+	const [tasks, setTasks] = useState([]);
 
     // Add task function
+    // Hook>State
     const addTask = (task) => {
-        console.log(task)
+         // Update the list of tasks by adding the new task.
+         // Get current list (prevState), and add the new task
+        setTasks(prevState => [...prevState, task])
     }
 
 	return (
@@ -18,6 +23,9 @@ function App() {
             </header>
             {/* CustomForm has access to addTask */}
             <CustomForm addTask={addTask}/>
+
+            {/* Only if there are tasks , then render the TaskList component." */}
+            {tasks && <TaskList tasks={tasks}/>}
         </div>
 	);
 }
