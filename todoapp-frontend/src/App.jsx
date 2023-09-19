@@ -6,7 +6,7 @@ import CustomForm from "./components/CustomForms";
 function App() {
 	const [count, setCount] = useState(0);
 
-    // Add
+    // Add task function
     const addTask = (task) => {
         console.log(task)
     }

@@ -10,11 +10,13 @@ const CustomForms = ({ addTask }) => {
 	const handleFormSubmit = (e) => {
 		// Prevent default form submission (aka reloading)
 		e.preventDefault();
+
         addTask({
             name: task,
             checked: false,
             id: Date.now()
         })
+        // Clear input field after submit
         setTask("");
 	};
 
