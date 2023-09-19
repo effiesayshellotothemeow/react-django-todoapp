@@ -5,7 +5,7 @@ import TaskItem from "./TaskItem";
 import styles from "./TaskList.Module.css";
 
 // Create a list of tasks based on the data provided in the tasks prop
-const TaskList = ({ tasks }) => {
+const TaskList = ({ tasks, deleteTask }) => {
 	return (
 		// Render and loop
 		<ul className={styles.tasks}>
@@ -13,7 +13,11 @@ const TaskList = ({ tasks }) => {
 			{tasks
 				.sort((a, b) => b.id - a.id)
 				.map((task) => (
-					<TaskItem key={task.id} task={task} />
+					<TaskItem
+                        key={task.id}
+                        task={task}
+                        deleteTask={deleteTask}
+                    />
 				))}
 		</ul>
 	);

@@ -9,12 +9,19 @@ function App() {
 	const [tasks, setTasks] = useState([]);
 
     // Add task function
-    // Hook>State
-    const addTask = (task) => {
+    const addTask = (task , deleteTask) => {
          // Update the list of tasks by adding the new task.
          // Get current list (prevState), and add the new task
         setTasks(prevState => [...prevState, task])
     }
+
+    // Delete task
+    const deleteTask = (id) => {
+        setTasks(prevState => prevState.filter
+            (t => t.id != id));
+    }
+
+    // Edit task
 
 	return (
         <div className="container">
@@ -25,7 +32,12 @@ function App() {
             <CustomForm addTask={addTask}/>
 
             {/* Only if there are tasks , then render the TaskList component." */}
-            {tasks && <TaskList tasks={tasks}/>}
+            {tasks && (
+            <TaskList 
+                tasks={tasks}
+                deleteTask={deleteTask}
+            />
+            )}
         </div>
 	);
 }
