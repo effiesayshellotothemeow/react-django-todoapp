@@ -1,3 +1,5 @@
+import { BeakerIcon } from "@heroicons/react/24/solid";
+
 const CustomForms = () => {
 
     const handleFormSubmit = (e) => {
@@ -27,13 +29,14 @@ const CustomForms = () => {
                 htmlFor="task"
                 >
             </label>
+            </div>
             <button
                 className="btn"
                 type="submit"
                 //aria-label="Add Task"
                 >
+                <BeakerIcon className="h-6 w-6 text-blue-500"/>
             </button>
-        </div>
     </form>
   )
 }
