@@ -11,7 +11,7 @@ const TaskItem = ({ task, deleteTask, toggleTask, enterEditMode }) => {
 
 	const handleCheckboxChange = (e) => {
 		setIsChecked(!isChecked);
-        toggleTask(task.id);
+		toggleTask(task.id);
 	};
 
 	return (
@@ -33,16 +33,13 @@ const TaskItem = ({ task, deleteTask, toggleTask, enterEditMode }) => {
 				</label>
 			</div>
 			<div className={styles["task-group"]}>
-				<button
-					className="btn"
-					onClick={() => enterEditMode(task)}
-				>
+				<button className="btn" onClick={() => enterEditMode(task)}>
 					<PencilSquareIcon width={24} height={24} />
 				</button>
 
 				<button
 					className={`btn ${styles.delete}`}
-					onClick={deleteTask(task.id)}
+					onClick={() => deleteTask(task.id)}
 				>
 					<TrashIcon width={24} height={24} />
 				</button>
