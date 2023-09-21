@@ -27,7 +27,7 @@ function App() {
 
 	// Check task
 	const toggleTask = (id) => {
-		setTasks(
+		setTasks((prevState) =>
 			prevState.map((t) => (t.id == id ? { ...t, checked: !t.checked } : t))
 		);
 	};
