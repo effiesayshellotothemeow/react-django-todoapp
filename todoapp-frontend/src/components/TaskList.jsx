@@ -5,7 +5,7 @@ import TaskItem from "./TaskItem";
 import styles from "./TaskList.Module.css";
 
 // Create a list of tasks based on the data provided in the tasks prop
-const TaskList = ({ tasks, deleteTask, toggleTask}) => {
+const TaskList = ({ tasks, deleteTask, toggleTask, enterEditMode}) => {
 	return (
 		// Render and loop
 		<ul className={styles.tasks}>
@@ -18,6 +18,7 @@ const TaskList = ({ tasks, deleteTask, toggleTask}) => {
                         task={task}
                         deleteTask={deleteTask}
                         toggleTask={toggleTask}
+                        enterEditMode={enterEditMode}
                     />
 				))}
 		</ul>
