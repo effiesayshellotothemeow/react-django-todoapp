@@ -28,7 +28,7 @@ def todo_details(request, pk): # todo_details that takes two parameters. request
         serializer = TodoSerializer(todo)
         return Response(serializer.data)
 
-    elif request.metgod == "PUT":
+    elif request.method == "PUT":
         serializer = TodoSerializer(todo, data=request.data)
         if serializer.is_valid():
             serializer.save()
